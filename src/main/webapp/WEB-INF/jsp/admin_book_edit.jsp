@@ -26,7 +26,11 @@ background-attachment: fixed;">
             <form action="book_edit_do.html?bookId=${detail.bookId}" method="post" id="addbook" >
 
                 <div class="input-group">
-                    <span  class="input-group-addon">书名</span>
+                    <span  class="input-group-addon">索书号</span>
+                    <input type="text" class="form-control" name="call_name" id="call_name" value="${detail.call_name}">
+                </div>
+                <div class="input-group">
+                    <span  class="input-group-addon">书目</span>
                     <input type="text" class="form-control" name="name" id="name" value="${detail.name}">
                 </div>
                 <div class="input-group">
@@ -38,37 +42,45 @@ background-attachment: fixed;">
                     <input type="text" class="form-control" name="publish" id="publish"  value="${detail.publish}" >
                 </div>
                 <div class="input-group">
-                    <span class="input-group-addon">ISBN</span>
-                    <input type="text" class="form-control" name="isbn" id="isbn"  value="${detail.isbn}" >
-                </div>
-                <div class="input-group">
-                    <span  class="input-group-addon">简介</span>
-                    <input type="text" class="form-control" name="introduction" id="introduction"  value="${detail.introduction}" >
-                </div>
-                <div class="input-group">
-                    <span class="input-group-addon">语言</span>
-                    <input type="text" class="form-control" name="language" id="language" value="${detail.language}" >
-                </div>
-                <div class="input-group">
-                    <span  class="input-group-addon">价格</span>
-                    <input type="text" class="form-control" name="price"  id="price" value="${detail.price}">
+                    <span class="input-group-addon">出版地</span>
+                    <input type="text" class="form-control" name="pub_place" id="pub_place" value="${detail.pub_place}">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">出版日期</span>
                     <input type="date" class="form-control" name="pubstr" id="pubstr" value="${detail.pubdate}">
                 </div>
                 <div class="input-group">
+                    <span class="input-group-addon">页卷数</span>
+                    <input type="text" class="form-control" name="page_num" id="page_num" value="${detail.page_num}">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">ISBN</span>
+                    <input type="text" class="form-control" name="isbn" id="isbn"  value="${detail.isbn}" >
+                </div>
+                <div class="input-group">
+                    <span  class="input-group-addon">单价</span>
+                    <input type="text" class="form-control" name="price"  id="price" value="${detail.price}">
+                </div>
+                <div class="input-group">
                     <span  class="input-group-addon">分类号</span>
                     <input type="text" class="form-control" name="classId" id="classId" value="${detail.classId}">
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">数量</span>
+                    <span class="input-group-addon">作品语种</span>
+                    <input type="text" class="form-control" name="language" id="language" value="${detail.language}" >
+                </div>
+                <div class="input-group">
+                    <span  class="input-group-addon">丛编题名</span>
+                    <input type="text" class="form-control" name="series_title" id="series_title"  value="${detail.series_title}" >
+                </div>
+                <div class="input-group">
+                    <span  class="input-group-addon">可借复本</span>
                     <input type="text" class="form-control" name="number"  id="number" value="${detail.number}">
                 </div>
                 <input type="submit" value="确定" class="btn btn-success btn-sm" class="text-left">
                 <script>
                     $("#addbook").submit(function () {
-                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#isbn").val()==''||$("#introduction").val()==''||$("#language").val()==''||$("#price").val()==''||$("#pubstr").val()==''||$("#classId").val()==''||$("#number").val()==''){
+                        if($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#pubstr").val()==''||$("#isbn").val()==''||$("#price").val()==''||$("#language").val()==''){
                             alert("请填入完整图书信息！");
                             return false;
                         }
