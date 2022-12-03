@@ -67,12 +67,13 @@ background-attachment: fixed;">
         <table class="table table-hover">
             <thead>
             <tr>
-                <th>书名</th>
+                <th>索书号</th>
+                <th>书目</th>
                 <th>作者</th>
                 <th>出版社</th>
                 <th>ISBN</th>
-                <th>价格</th>
-                <th>剩余数量</th>
+                <th>单价</th>
+                <th>可借复本</th>
                 <th>详情</th>
                 <th>编辑</th>
                 <th>删除</th>
@@ -81,6 +82,7 @@ background-attachment: fixed;">
             <tbody>
             <c:forEach items="${books}" var="book">
             <tr>
+                <td><c:out value="${book.call_name}"></c:out></td>
                 <td><c:out value="${book.name}"></c:out></td>
                 <td><c:out value="${book.author}"></c:out></td>
                 <td><c:out value="${book.publish}"></c:out></td>
