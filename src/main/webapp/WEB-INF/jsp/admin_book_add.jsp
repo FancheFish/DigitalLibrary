@@ -24,8 +24,12 @@ background-attachment: fixed;">
 <div style="position: relative;padding-top: 60px; width: 80%;margin-left: 10%">
     <form action="book_add_do.html" method="post" id="addbook">
         <div class="form-group">
-            <label for="name">图书名</label>
-            <input type="text" class="form-control" name="name" id="name" placeholder="请输入书名">
+            <label for="call_name">索书号</label>
+            <input type="text" class="form-control" name="call_name" id="call_name" placeholder="请输入索书号">
+        </div>
+        <div class="form-group">
+            <label for="name">书目</label>
+            <input type="text" class="form-control" name="name" id="name" placeholder="请输入书目">
         </div>
         <div class="form-group">
             <label for="author">作者</label>
@@ -36,39 +40,47 @@ background-attachment: fixed;">
             <input type="text" class="form-control" name="publish" id="publish" placeholder="请输入出版社">
         </div>
         <div class="form-group">
-            <label for="isbn">ISBN</label>
-            <input type="text" class="form-control" name="isbn" id="isbn" placeholder="请输入ISBN">
-        </div>
-        <div class="form-group">
-            <label for="introduction">简介</label>
-            <textarea class="form-control" rows="3" name="introduction" id="introduction"
-                      placeholder="请输入简介"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="language">语言</label>
-            <input type="text" class="form-control" name="language" id="language" placeholder="请输入语言">
-        </div>
-        <div class="form-group">
-            <label for="price">价格</label>
-            <input type="text" class="form-control" name="price" id="price" placeholder="请输入价格">
+            <label for="pub_place">出版地</label>
+            <input type="text" class="form-control" name="pub_place" id="pub_place" placeholder="请输入出版地">
         </div>
         <div class="form-group">
             <label for="pubstr">出版日期</label>
             <input type="date" class="form-control" name="pubstr" id="pubstr" placeholder="请输入出版日期">
         </div>
         <div class="form-group">
+            <label for="page_num">页卷数</label>
+            <input type="text" class="form-control" name="page_num" id="page_num" placeholder="请输入页卷数">
+        </div>
+        <div class="form-group">
+            <label for="isbn">ISBN</label>
+            <input type="text" class="form-control" name="isbn" id="isbn" placeholder="请输入ISBN">
+        </div>
+        <div class="form-group">
+            <label for="price">单价</label>
+            <input type="text" class="form-control" name="price" id="price" placeholder="请输入单价">
+        </div>
+        <div class="form-group">
             <label for="classId">分类号</label>
             <input type="text" class="form-control" name="classId" id="classId" placeholder="请输入分类号">
         </div>
         <div class="form-group">
-            <label for="number">数量</label>
-            <input type="text" class="form-control" name="number" id="number" placeholder="请输入图书数量">
+            <label for="language">作品语种</label>
+            <input type="text" class="form-control" name="language" id="language" placeholder="请输入作品语种">
+        </div>
+        <div class="form-group">
+            <label for="series_title">丛编题名</label>
+            <textarea class="form-control" rows="3" name="series_title" id="series_title"
+                      placeholder="请输入丛编题名"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="number">可借复本</label>
+            <input type="text" class="form-control" name="number" id="number" placeholder="请输入可借复本数量">
         </div>
 
         <input type="submit" value="添加" class="btn btn-success btn-sm" class="text-left">
         <script>
             $("#addbook").submit(function () {
-                if ($("#name").val() == '' || $("#author").val() == '' || $("#publish").val() == '' || $("#isbn").val() == '' || $("#introduction").val() == '' || $("#language").val() == '' || $("#price").val() == '' || $("#pubstr").val() == '' || $("#classId").val() == '' || $("#pressmark").val() == '' || $("#number").val() == '') {
+                if ($("#name").val()==''||$("#author").val()==''||$("#publish").val()==''||$("#pubstr").val()==''||$("#isbn").val()==''||$("#price").val()==''||$("#language").val()=='') {
                     alert("请填入完整图书信息！");
                     return false;
                 }
