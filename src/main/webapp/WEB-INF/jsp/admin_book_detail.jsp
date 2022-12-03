@@ -26,7 +26,11 @@ background-attachment: fixed;">
             <table class="table table-hover">
                 <tbody>
                 <tr>
-                    <th width="15%">书名</th>
+                    <th>索书号</th>
+                    <td>${detail.call_name}</td>
+                </tr>
+                <tr>
+                    <th width="15%">书目</th>
                     <td>${detail.name}</td>
                 </tr>
                 <tr>
@@ -38,31 +42,43 @@ background-attachment: fixed;">
                     <td>${detail.publish}</td>
                 </tr>
                 <tr>
-                    <th>ISBN</th>
-                    <td>${detail.isbn}</td>
-                </tr>
-                <tr>
-                    <th>简介</th>
-                    <td>${detail.introduction}</td>
-                </tr>
-                <tr>
-                    <th>语言</th>
-                    <td>${detail.language}</td>
-                </tr>
-                <tr>
-                    <th>价格</th>
-                    <td>${detail.price}</td>
+                    <th>出版地</th>
+                    <td>${detail.pub_place}</td>
                 </tr>
                 <tr>
                     <th>出版日期</th>
                     <td>${detail.pubdate}</td>
                 </tr>
                 <tr>
+                    <th>页卷数</th>
+                    <td>${detail.page_num}</td>
+                </tr>
+                <tr>
+                    <th>ISBN</th>
+                    <td>${detail.isbn}</td>
+                </tr>
+                <tr>
+                    <th>单价</th>
+                    <td>${detail.price}</td>
+                </tr>
+                <tr>
                     <th>分类号</th>
                     <td>${detail.classId}</td>
                 </tr>
                 <tr>
-                    <th>数量</th>
+                    <th>文献类型</th>
+                    <td>中文图书</td>
+                </tr>
+                <tr>
+                    <th>作品语种</th>
+                    <td>${detail.language}</td>
+                </tr>
+                <tr>
+                    <th>丛编题名</th>
+                    <td>${detail.series_title}</td>
+                </tr>
+                <tr>
+                    <th>可借复本</th>
                     <td>${detail.number}</td>
                 </tr>
                 </tbody>
