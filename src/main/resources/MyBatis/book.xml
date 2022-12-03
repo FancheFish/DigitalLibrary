@@ -3,15 +3,18 @@
 <mapper namespace="com.library.dao.BookDao">
     <insert id="addBook" parameterType="com.library.bean.Book">
         insert into book_info values
-        (null, #{name}, #{author}, #{publish}, #{ISBN},
-        #{introduction}, #{language}, #{price}, #{pub_date},
-        #{class_id}, #{number})
+        (null, #{call_name}, #{name}, #{author}, #{publish},
+         #{pub_place}, #{pub_date}, #{page_num}, #{ISBN},
+         #{price}, #{number}, #{class_id}, #{language},
+         #{series_title}, #{introduction})
     </insert>
     <update id="editBook" parameterType="com.library.bean.Book">
-        update book_info set name=#{name}, author=#{author},
-        publish=#{publish}, ISBN=#{ISBN}, introduction=#{introduction},
-        language=#{language}, price=#{price}, pub_date=#{pub_date},
-        class_id=#{class_id}, number=#{number} where book_id=#{book_id}
+        update book_info set call_name=#{call_name}, name=#{name}, author=#{author},
+        publish=#{publish}, pub_place=#{pub_place}, pub_date=#{pub_date},
+        page_num=#{page_num}, ISBN=#{ISBN}, price=#{price},
+        number=#{number}, class_id=#{class_id}, language=#{language},
+        series_title=#{series_title}, introduction=#{introduction}
+        where book_id=#{book_id}
     </update>
     <select id="getAllBooks" resultType="com.library.bean.Book">
         select * from book_info
