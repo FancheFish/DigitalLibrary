@@ -19,15 +19,25 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-<div style="padding: 20px 550px 10px">
+<div style="padding: 20px 650px 10px">
     <form method="post" action="reader_querybook_do.html" class="form-inline" id="searchform">
         <div class="input-group">
-            <input type="text" placeholder="输入图书名" class="form-control" id="search" name="searchWord"
-                   class="form-control">
+            <input type="text" placeholder="输入关键词" class="form-control" id="search" name="searchWord"
+                   class="form-control" autocomplete="off">
             <span class="input-group-btn">
+                <select class="form-control">
+                    <option>全部类型</option>
+                    <option>书目</option>
+                    <option>作者</option>
+                    <option>ISBN</option>
+                    <option>索书号</option>
+                    <option>出版社</option>
+                </select>
                 <input type="submit" value="搜索" class="btn btn-default">
+                <a href="reader_books.html" class="btn btn-default">返回全部图书</a>
             </span>
         </div>
+
     </form>
     <script>
         $("#searchform").submit(function () {
