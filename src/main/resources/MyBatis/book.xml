@@ -21,11 +21,11 @@
     </select>
     <select id="queryBook" resultType="com.library.bean.Book" parameterType="String">
         select * from book_info where name like #{search}
-        or author like #{search} or introduction like #{search}
+        or author like #{search} or ISBN like #{ISBN} or call_name like #{call_name} or publish like #{publish}
     </select>
     <select id="matchBook" resultType="int" parameterType="String">
         select count(*) from book_info where name like #{search}
-        or author like #{search} or introduction like #{search}
+        or author like #{search} or ISBN like #{ISBN} or call_name like #{call_name} or publish like #{publish}
     </select>
     <select id="getBook" resultType="com.library.bean.Book" parameterType="long">
         select * from book_info where book_id = #{book_id}
