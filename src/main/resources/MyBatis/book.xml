@@ -21,11 +21,17 @@
     </select>
     <select id="queryBook" resultType="com.library.bean.Book" parameterType="String">
         select * from book_info where name like #{search}
-        or author like #{search} or ISBN like #{ISBN} or call_name like #{call_name} or publish like #{publish}
+        or author like #{search} or ISBN like #{search} or call_name like #{search} or publish like #{search}
+    </select>
+    <select id="advancedQueryBook" resultType="com.library.bean.Book" parameterType="HashMap">
+        select * from book_info where name like #{name} and author like #{author} and ISBN like #{ISBN} and call_name like #{call_name} and publish like #{publish}
     </select>
     <select id="matchBook" resultType="int" parameterType="String">
         select count(*) from book_info where name like #{search}
-        or author like #{search} or ISBN like #{ISBN} or call_name like #{call_name} or publish like #{publish}
+        or author like #{search} or ISBN like #{search} or call_name like #{search} or publish like #{search}
+    </select>
+    <select id="advancedMatchBook" resultType="int" parameterType="HashMap">
+        select count(*) from book_info where name like #{name} and author like #{author} and ISBN like #{ISBN} and call_name like #{call_name} and publish like #{publish}
     </select>
     <select id="getBook" resultType="com.library.bean.Book" parameterType="long">
         select * from book_info where book_id = #{book_id}
