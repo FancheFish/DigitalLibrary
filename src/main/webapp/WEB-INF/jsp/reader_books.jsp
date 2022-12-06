@@ -19,11 +19,15 @@ background-attachment: fixed;">
 
 <div id="header"></div>
 
-<div style="padding: 20px 650px 10px">
+<div style="padding: 20px 500px 10px">
+    <div>
+        <ul class="nav nav-pills">
+            <li role="presentation" id="search1" class="active"><a href="#">简单搜索</a></li>
+            <li role="presentation" id="search2"><a href="#">高级搜索</a></li>
+        </ul>
+    </div>
     <form method="post" action="reader_querybook_do.html" class="form-inline" id="searchform">
-        <div class="input-group">
-            <input type="text" placeholder="输入关键词" class="form-control" id="search" name="searchWord"
-                   class="form-control" autocomplete="off">
+        <div class="input-group" id="simple-search">
             <span class="input-group-btn">
                 <select class="form-control">
                     <option>全部类型</option>
@@ -33,17 +37,55 @@ background-attachment: fixed;">
                     <option>索书号</option>
                     <option>出版社</option>
                 </select>
+                <input type="text" placeholder="输入关键词" class="form-control" id="search" name="searchWord"
+                       class="form-control" autocomplete="off">
                 <input type="submit" value="搜索" class="btn btn-default">
                 <a href="reader_books.html" class="btn btn-default">返回全部图书</a>
             </span>
         </div>
-
+        <div class="btn-group btn-group-sm" role="group" aria-label="Small button group" id="hot-search">
+            <p style="color: whitesmoke">30天内热门检索top5：</p>
+            <button type="button" class="btn btn-default" id="btn1" value="计算机" style="margin-right: 10px">计算机</button>
+            <button type="button" class="btn btn-default" id="btn2" value="网页设计" style="margin-right: 10px">网页设计</button>
+            <button type="button" class="btn btn-default" id="btn3" value="数据库" style="margin-right: 10px">数据库</button>
+            <button type="button" class="btn btn-default" id="btn4" value="C语言" style="margin-right: 10px">C语言</button>
+            <button type="button" class="btn btn-default" id="btn5" value="清华大学" style="margin-right: 10px">清华大学</button>
+        </div>
     </form>
+
+    <form method="post" action="reader_advanced_querybook_do.html" class="form-inline" id="advanced-searchform" hidden="hidden">
+        <div class="input-group" id="advanced-search">
+            <input type="text" placeholder="输入书目" class="form-control" id="name-search" name="searchName"
+                       class="form-control" autocomplete="off">
+            <input type="text" placeholder="输入作者" class="form-control" id="author-search" name="searchAuthor"
+                       class="form-control" autocomplete="off">
+            <input type="text" placeholder="输入ISBN" class="form-control" id="ISBN-search" name="searchISBN"
+                       class="form-control" autocomplete="off">
+            <input type="text" placeholder="输入索书号" class="form-control" id="callname-search" name="searchCallname"
+                       class="form-control" autocomplete="off">
+            <input type="text" placeholder="输入出版社" class="form-control" id="publish-search" name="searchPublish"
+                       class="form-control" autocomplete="off">
+            <input type="submit" value="搜索" class="btn btn-default">
+            <a href="reader_books.html" class="btn btn-default">返回全部图书</a>
+        </div>
+    </form>
+
     <script>
         $("#searchform").submit(function () {
             var val = $("#search").val();
             if (val == '') {
                 alert("请输入关键字");
+                return false;
+            }
+        });
+        $("#advanced-searchform").submit(function () {
+            var val1 = $("#name-search").val();
+            var val2 = $("#author-search").val();
+            var val3 = $("#ISBN-search").val();
+            var val4 = $("#callname-search").val();
+            var val5 = $("#publish-search").val();
+            if (val1 == ''&&val2 == ''&&val3 == ''&&val4 == ''&&val5 == '') {
+                alert("请输入至少一个关键字");
                 return false;
             }
         })
@@ -136,3 +178,40 @@ background-attachment: fixed;">
 
 </body>
 </html>
+
+<script>
+    $('#btn1').click(function () {
+        $('#search').val($('#btn1').val());
+    });
+    $('#btn2').click(function () {
+        $('#search').val($('#btn2').val());
+    });
+    $('#btn3').click(function () {
+        $('#search').val($('#btn3').val());
+    });
+    $('#btn4').click(function () {
+        $('#search').val($('#btn4').val());
+    });
+    $('#btn5').click(function () {
+        $('#search').val($('#btn5').val());
+    });
+
+    $('#search1').click(function () {
+        //$('#simple-search').show();
+        //$('#advanced-search').hide();
+        //$('#hot-search').show();
+        $('#search1').addClass("active");
+        $('#search2').removeClass();
+        $('#searchform').show();
+        $('#advanced-searchform').hide();
+    })
+    $('#search2').click(function () {
+        //$('#simple-search').hide();
+        //$('#advanced-search').show();
+        //$('#hot-search').hide();
+        $('#search1').removeClass();
+        $('#search2').addClass("active");
+        $('#searchform').hide();
+        $('#advanced-searchform').show();
+    })
+</script>
