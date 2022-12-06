@@ -16,12 +16,20 @@ public class BookService {
         return bookDao.queryBook(searchWord);
     }
 
+    public ArrayList<Book> advancedQueryBook(String searchName, String searchAuthor, String searchISBN, String searchCallname, String searchPublish) {
+        return bookDao.advancedQueryBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish);
+    }
+
     public ArrayList<Book> getAllBooks() {
         return bookDao.getAllBooks();
     }
 
     public boolean matchBook(String searchWord) {
         return bookDao.matchBook(searchWord) > 0;
+    }
+
+    public boolean advancedMatchBook(String searchName, String searchAuthor, String searchISBN, String searchCallname, String searchPublish) {
+        return bookDao.advancedMatchBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish) > 0;
     }
 
     public boolean addBook(Book book) {
