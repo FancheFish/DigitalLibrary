@@ -59,6 +59,18 @@ public class BookController {
         }
     }
 
+    @RequestMapping("/reader_advanced_querybook_do.html")
+    public ModelAndView readerAdvancedQueryBookDo(String searchName, String searchAuthor, String searchISBN, String searchCallname, String searchPublish) {
+        if (bookService.advancedMatchBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish)) {
+            ArrayList<Book> books = bookService.advancedQueryBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish);
+            ModelAndView modelAndView = new ModelAndView("reader_books");
+            modelAndView.addObject("books", books);
+            return modelAndView;
+        } else {
+            return new ModelAndView("reader_books", "error", "没有匹配的图书");
+        }
+    }
+
     @RequestMapping("/admin_books.html")
     public ModelAndView adminBooks() {
         ArrayList<Book> books = bookService.getAllBooks();
