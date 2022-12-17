@@ -1,9 +1,11 @@
 package com.library.controller;
 
 import com.library.bean.Book;
+import com.library.bean.EBook;
 import com.library.bean.Lend;
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
+import com.library.service.EBookService;
 import com.library.service.LendService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,8 @@ import java.util.Date;
 public class BookController {
     @Autowired
     private BookService bookService;
+    @Autowired
+    private EBookService ebookService;
     @Autowired
     private LendService lendService;
 
@@ -130,6 +134,17 @@ public class BookController {
         Book book = bookService.getBook(bookId);
         ModelAndView modelAndView = new ModelAndView("reader_book_detail");
         modelAndView.addObject("detail", book);
+        String ISBN = book.getIsbn();
+//        EBook eBook = ebookService.getEBook(ISBN);
+        EBook eBook = new EBook();
+        if(ebookService.getEBook(ISBN)!=null) {
+            eBook = ebookService.getEBook(ISBN);
+        }
+        else {
+            eBook.setBookurl("暂无");
+            eBook.setSource("暂无");
+        }
+        modelAndView.addObject("ebook_detail", eBook);
         return modelAndView;
     }
 
