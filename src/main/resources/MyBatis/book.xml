@@ -36,6 +36,9 @@
     <select id="getBook" resultType="com.library.bean.Book" parameterType="long">
         select * from book_info where book_id = #{book_id}
     </select>
+    <select id="getEBook" resultType="com.library.bean.EBook" parameterType="String">
+        select * from ebook_info where ISBN = #{ebookISBN}
+    </select>
     <delete id="deleteBook" parameterType="long">
         delete from book_info where book_id = #{book_id}
     </delete>
