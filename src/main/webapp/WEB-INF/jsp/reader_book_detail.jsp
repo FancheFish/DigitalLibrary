@@ -88,6 +88,19 @@ background-attachment: fixed;">
                     <th>可借复本</th>
                     <td>${detail.number}</td>
                 </tr>
+                <tr>
+                    <th>电子资源快速链接</th>
+                    <c:if test="${ebook_detail.bookurl != '暂无'}">
+                        <td><a href="${ebook_detail.bookurl}">${ebook_detail.bookurl}</a></td>
+                    </c:if>
+                    <c:if test="${ebook_detail.bookurl == '暂无'}">
+                        <td>暂无</td>
+                    </c:if>
+                </tr>
+                <tr>
+                    <th>电子资源来源</th>
+                    <td>${ebook_detail.source}</td>
+                </tr>
                 </tbody>
             </table>
         </div>
