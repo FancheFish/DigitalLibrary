@@ -1,8 +1,10 @@
 package com.library.controller;
 
+import com.library.bean.Book;
 import com.library.bean.ReaderCard;
 import com.library.service.BookService;
 import com.library.service.LendService;
+import com.library.service.ReaderTraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,9 @@ public class LendController {
 
     @Autowired
     private BookService bookService;
+
+    @Autowired
+    private ReaderTraceService readerTraceService;
 
     @RequestMapping("/deletebook.html")
     public String deleteBook(HttpServletRequest request, RedirectAttributes redirectAttributes) {
@@ -60,10 +65,17 @@ public class LendController {
     public String bookLend(HttpServletRequest request, RedirectAttributes redirectAttributes) {
         long bookId = Long.parseLong(request.getParameter("bookId"));
         long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        Book book = bookService.getBook(bookId);
+        String bookName = book.getName();
+        String detail = "{\"book_id\": \"" + bookId + "\", \"name\": \"" + bookName + "\"}";
+        boolean result = readerTraceService.addTrace(readerId, "借阅", detail);
+        if(!result) {
+            System.out.println("跟踪读者行为失败！");
+        }
         if (lendService.lendBook(bookId, readerId)) {
             redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
         } else {
-            redirectAttributes.addFlashAttribute("succ", "图书借阅成功！");
+            redirectAttributes.addFlashAttribute("error", "图书借阅失败！");
         }
         return "redirect:/reader_books.html";
     }
