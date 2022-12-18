@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.2.1.js"></script>
     <script src="js/bootstrap.min.js" ></script>
+    <script src="js/jquery.qrcode.min.js"></script>
     <script>
         $(function () {
             $('#header').load('reader_header.html');
@@ -101,6 +102,10 @@ background-attachment: fixed;">
                     <th>电子资源来源</th>
                     <td>${ebook_detail.source}</td>
                 </tr>
+                <tr>
+                    <th>扫描二维码</th>
+                    <td><div id="qrcodeCanvas"></div></td>
+                </tr>
                 </tbody>
             </table>
         </div>
@@ -110,3 +115,35 @@ background-attachment: fixed;">
 
 </body>
 </html>
+
+<script>
+    //jQuery('#qrcode').qrcode("this plugin is great");
+    jQuery('#qrcodeTable').qrcode({
+        render	: "table",
+        text	: "http://baidu.com"
+    });
+    jQuery('#qrcodeCanvas').qrcode({
+        text	: utf16to8("索书号：${detail.call_name}\n书目：${detail.name}\n作者：${detail.author}\n出版社：${detail.publish}\n页卷数：${detail.page_num}\nISBN：${detail.isbn}\n单价：${detail.price}\n可借复本：${detail.number}"),
+        width   : 200,
+        height  : 200
+    });
+    function utf16to8(str) {
+        var out, i, len, c;
+        out = "";
+        len = str.length;
+        for (i = 0; i < len; i++) {
+            c = str.charCodeAt(i);
+            if ((c >= 0x0001) && (c <= 0x007F)) {
+                out += str.charAt(i);
+            } else if (c > 0x07FF) {
+                out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            } else {
+                out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+            }
+        }
+        return out;
+    };
+</script>
