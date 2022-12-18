@@ -159,7 +159,7 @@ public class BookController {
         modelAndView.addObject("ebook_detail", eBook);
         long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
         String bookName = book.getName();
-        String detail = "{\"book_id\": \"" + bookId + "\", \"name\": \"" + bookName + "\"}";
+        String detail = "{\"book_id\": " + bookId + ", \"name\": \"" + bookName + "\"}";
         boolean result = readerTraceService.addTrace(readerId, "查看详情", detail);
         if(!result) {
             System.out.println("跟踪读者行为失败！");
