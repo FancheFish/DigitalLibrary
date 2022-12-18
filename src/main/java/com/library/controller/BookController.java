@@ -1,12 +1,10 @@
 package com.library.controller;
 
-import com.library.bean.Book;
-import com.library.bean.EBook;
-import com.library.bean.Lend;
-import com.library.bean.ReaderCard;
+import com.library.bean.*;
 import com.library.service.BookService;
 import com.library.service.EBookService;
 import com.library.service.LendService;
+import com.library.service.ReaderTraceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +26,8 @@ public class BookController {
     private EBookService ebookService;
     @Autowired
     private LendService lendService;
+    @Autowired
+    private ReaderTraceService readerTraceService;
 
     private Date getDate(String pubstr) {
         try {
@@ -52,7 +52,13 @@ public class BookController {
     }
 
     @RequestMapping("/reader_querybook_do.html")
-    public ModelAndView readerQueryBookDo(String searchWord) {
+    public ModelAndView readerQueryBookDo(String searchWord, HttpServletRequest request) {
+        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        String detail = "{\"searchWord\": \"" + searchWord + "\"}";
+        boolean result = readerTraceService.addTrace(readerId, "普通检索", detail);
+        if(!result) {
+            System.out.println("跟踪读者行为失败！");
+        }
         if (bookService.matchBook(searchWord)) {
             ArrayList<Book> books = bookService.queryBook(searchWord);
             ModelAndView modelAndView = new ModelAndView("reader_books");
@@ -64,7 +70,13 @@ public class BookController {
     }
 
     @RequestMapping("/reader_advanced_querybook_do.html")
-    public ModelAndView readerAdvancedQueryBookDo(String searchName, String searchAuthor, String searchISBN, String searchCallname, String searchPublish) {
+    public ModelAndView readerAdvancedQueryBookDo(String searchName, String searchAuthor, String searchISBN, String searchCallname, String searchPublish, HttpServletRequest request) {
+        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        String detail = "{\"name\": \"" + searchName + "\", \"author\": \"" + searchAuthor + "\", \"ISBN\": \"" + searchISBN + "\", \"call_name\": \"" + searchCallname + "\", \"publish\": \"" + searchPublish + "\"}";
+        boolean result = readerTraceService.addTrace(readerId, "高级检索", detail);
+        if(!result) {
+            System.out.println("跟踪读者行为失败！");
+        }
         if (bookService.advancedMatchBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish)) {
             ArrayList<Book> books = bookService.advancedQueryBook(searchName, searchAuthor, searchISBN, searchCallname, searchPublish);
             ModelAndView modelAndView = new ModelAndView("reader_books");
@@ -145,6 +157,13 @@ public class BookController {
             eBook.setSource("暂无");
         }
         modelAndView.addObject("ebook_detail", eBook);
+        long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
+        String bookName = book.getName();
+        String detail = "{\"book_id\": \"" + bookId + "\", \"name\": \"" + bookName + "\"}";
+        boolean result = readerTraceService.addTrace(readerId, "查看详情", detail);
+        if(!result) {
+            System.out.println("跟踪读者行为失败！");
+        }
         return modelAndView;
     }
 
