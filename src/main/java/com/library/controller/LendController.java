@@ -67,7 +67,7 @@ public class LendController {
         long readerId = ((ReaderCard) request.getSession().getAttribute("readercard")).getReaderId();
         Book book = bookService.getBook(bookId);
         String bookName = book.getName();
-        String detail = "{\"book_id\": \"" + bookId + "\", \"name\": \"" + bookName + "\"}";
+        String detail = "{\"book_id\": " + bookId + ", \"name\": \"" + bookName + "\"}";
         boolean result = readerTraceService.addTrace(readerId, "借阅", detail);
         if(!result) {
             System.out.println("跟踪读者行为失败！");
