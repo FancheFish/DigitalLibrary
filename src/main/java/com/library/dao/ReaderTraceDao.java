@@ -22,4 +22,5 @@ public class ReaderTraceDao {
         map.put("detail", detail);
         return sqlSessionTemplate.insert(NAMESPACE + "addTrace", map);
     }
+
 }
