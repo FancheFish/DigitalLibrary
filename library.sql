@@ -9,10 +9,10 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin`  (
-  `admin_id` bigint(20) NOT NULL,
-  `password` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `username` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`admin_id`) USING BTREE
+                          `admin_id` bigint(20) NOT NULL,
+                          `password` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                          `username` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                          PRIMARY KEY (`admin_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -25,31 +25,31 @@ INSERT INTO `admin` VALUES (123456, '123456', 'admin');
 -- ----------------------------
 DROP TABLE IF EXISTS `book_info`;
 CREATE TABLE `book_info`  (
-  `book_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `call_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `author` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `publish` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `pub_place` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `pub_date` date NOT NULL,
-  `page_num` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `ISBN` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `price` decimal(10, 2) NOT NULL,
-  `number` int(11) NULL DEFAULT NULL,
-  `class_id` int(11) NULL DEFAULT NULL,
-  `language` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `series_title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
-  `introduction` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
-  PRIMARY KEY (`book_id`) USING BTREE
+                              `book_id` bigint(20) NOT NULL AUTO_INCREMENT,
+                              `call_name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                              `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                              `author` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                              `publish` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                              `pub_place` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                              `pub_date` date NOT NULL,
+                              `page_num` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                              `ISBN` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                              `price` decimal(10, 2) NOT NULL,
+                              `number` int(11) NULL DEFAULT NULL,
+                              `class_id` int(11) NULL DEFAULT NULL,
+                              `language` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                              `series_title` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                              `introduction` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+                              PRIMARY KEY (`book_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1120 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of book_info
 -- ----------------------------
-INSERT INTO `book_info` VALUES (120, 'TP311.56/4771(2)         ', 'LabVIEW程序设计与应用                ', '杨乐平,李海涛,杨 磊编著                 ', '电子工业出版社          ', '北京      ', '2005-01-01', '459页     ', '7-121-00588-3       ', 42.00, 8, 23, '   ', NULL, NULL);
+INSERT INTO `book_info` VALUES (120, 'TP311.56/4771(2)         ', 'LabVIEW程序设计与应用                ', '杨乐平,李海涛,杨 磊编著                 ', '电子工业出版社          ', '北京      ', '2005-01-01', '459页     ', '7-121-00588-3', 42.00, 8, 23, '   ', NULL, NULL);
 INSERT INTO `book_info` VALUES (121, 'TP311.56/1280', 'LabVIEW程序设计与应用                ', '张金编著                          ', '电子工业出版社          ', '北京      ', '2015-01-01', '10,320页  ', '978-7-121-25329-4   ', 58.00, 3, 23, 'chi', '卓越工程师培养计划', '卓越工程师培养计划');
 INSERT INTO `book_info` VALUES (122, 'TP311.561/4034', 'LabVIEW程序设计与应用                ', '吉淑娇, 商微微, 雷艳敏编著              ', '清华大学出版社          ', '北京      ', '2019-01-01', '190页     ', '978-7-302-51254-7   ', 49.00, 3, 23, 'chi', '新视野电子电气科技丛书', '新视野电子电气科技丛书');
-INSERT INTO `book_info` VALUES (123, 'TP393.092/1133', 'Dreamweaver CS3网页设计艺术         ', '互动空间编著                        ', '电子工业出版社          ', '北京      ', '2008-01-01', '373页     ', '978-7-121-05556-0   ', 49.00, 5, 23, 'chi', '高手过招', '高手过招');
+INSERT INTO `book_info` VALUES (123, 'TP393.092/1133', 'Dreamweaver CS3网页设计艺术', '互动空间编著', '电子工业出版社', '北京', '2008-01-01', '373页', '978-7-121-05556-0', 49.00, 5, 23, 'chi', '高手过招', '高手过招');
 INSERT INTO `book_info` VALUES (124, 'TP393/1726               ', '计算机网络基础                       ', '邵峰晶…[等]编著                     ', '人民邮电出版社          ', '北京      ', '2000-01-01', '186页     ', '7-115-08213-8       ', 19.80, 3, 23, 'chi', '计算机系列教材', '计算机系列教材');
 INSERT INTO `book_info` VALUES (125, 'TP393/6013               ', '计算机网络基础                       ', '吴功宜编著                         ', '南开大学出版社          ', '天津      ', '1996-01-01', '161页     ', '7-310-00925-8       ', 0.00, 3, 23, 'chi', '计算机大专教材系列', '计算机大专教材系列');
 INSERT INTO `book_info` VALUES (126, 'TP393/4496               ', '计算机网络基础                       ', '杜煜, 姚鸿编著                      ', '人民邮电出版社          ', '北京      ', '2002-01-01', '298页     ', '7-115-09203-6       ', 26.00, 5, 23, 'chi', '计算机网络技术系列教材', '计算机网络技术系列教材');
@@ -1052,9 +1052,9 @@ INSERT INTO `book_info` VALUES (1119, 'TP39/4436(2)', '计算机应用基础    
 -- ----------------------------
 DROP TABLE IF EXISTS `class_info`;
 CREATE TABLE `class_info`  (
-  `class_id` int(11) NOT NULL,
-  `class_name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`class_id`) USING BTREE
+                               `class_id` int(11) NOT NULL,
+                               `class_name` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                               PRIMARY KEY (`class_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -1085,16 +1085,123 @@ INSERT INTO `class_info` VALUES (22, '综合');
 INSERT INTO `class_info` VALUES (23, '中文图书');
 
 -- ----------------------------
+-- Table structure for ebook_info
+-- ----------------------------
+DROP TABLE IF EXISTS `ebook_info`;
+CREATE TABLE `ebook_info`  (
+                               `ISBN` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                               `bookurl` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               `source` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+                               PRIMARY KEY (`ISBN`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ebook_info
+-- ----------------------------
+INSERT INTO `ebook_info` VALUES ('', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081223-w031-m801-150&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-04-009892-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-04-015754-3&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-04-009909-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-04-009909-8&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-04-010058-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-04-010058-4&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-109-09790-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20061106-m002-w007-039&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-114-03096-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20080110-m801-w005-162&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-115-10995-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081226-m901-w006-029&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01136-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090819-m801-w065-005&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01179-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090815-m801-w065-021&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01324-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090815-m801-w065-009&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01541-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090819-m801-w065-007&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01625-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100107-m801-w006-058&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01636-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090819-m801-w065-004&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-01865-1', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090721-m801-w064-044&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-02036-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090722-m801-w003-032&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-02144-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100107-m801-w006-078&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-118-02304-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090815-m801-w064-058&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-00588-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100805-m802-w023-028&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01047-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-058&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01067-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-059&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01112-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101015-m305-w305-012&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01141-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-016&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01213-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101015-m304-w304-017&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-121-01847-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-004&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-302-11357-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20071123-m006-w012-064&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-308-03443-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090916-m904-w003-040&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5053-8449-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101016-m306-w306-020&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5053-8960-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-027&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5053-9037-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100510-m802-w071-028&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5612-1975-X', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-5612-1975-X&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5624-0921-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101103-SGD-889-0056&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5624-3102-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101103-SGD-889-0062&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-5641-0414-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20070210-m026-w008-033&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81038-128-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20080922-m801-w015-152&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81050-157-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20070905-m000-w005-028&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81057-732-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-81057-732-8&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81058-008-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090724-m802-w065-083&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81084-808-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20071023-m000-w005-005&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('7-81110-067-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=ISBN7-81110-067-3&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17035-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090822-m802-w071-010&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17259-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090822-m802-w071-123&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17291-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090822-m802-w071-022&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17423-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090822-m802-w071-073&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17655-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090822-m802-w071-011&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17804-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090828-m802-w006-014&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-17833-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090828-m802-w006-037&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18033-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090831-m802-w018-018&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18130-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090831-m802-w014-015&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18149-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090831-m802-w014-027&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18216-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090831-m802-w018-049&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18635-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090827-m802-w006-038&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-18882-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090827-m802-w018-107&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19270-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100817-m802-w027-024&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19307-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100819-m802-w026-024&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19696-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100823-m802-w026-037&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19796-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100819-m802-w025-065&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19968-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101201-BPO-888-0015&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19970-6', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101201-BPO-888-0017&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19980-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101201-BPO-888-0019&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-19986-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20101201-BPO-888-0022&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-20437-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100819-m802-w025-146&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-115-20635-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100819-m802-w025-129&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-118-05254-1', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100910-BPO-888-0404&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-121-05556-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100805-m802-w023-106&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-121-05852-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100805-m802-w023-097&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-121-05980-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100809-m802-w027-120&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-302-14195-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081206-m027-w015-026&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-302-14355-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081226-m051-w009-053&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-302-14804-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081206-m025-w015-084&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-302-15142-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081206-m025-w015-122&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-302-15728-1', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100419-m802-w073-019&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-305-05185-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081215-m802-w018-258&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-305-05699-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090718-m802-w020-003&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-308-05942-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090915-m904-w066-011&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5083-5680-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20071122-m057-w017-054&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5121-1011-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20121114-ZDLW-889-0435&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5427-3805-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081223-m801-w030-035&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5427-4152-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100120-m801-w018-099&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5605-1567-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20081223-m802-w017-024&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5606-2345-0', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100811-BPO-77&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5609-4084-7', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20071122-m027-w014-044&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5618-2918-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100906-BPO-888-0276&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5635-1620-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090911-m802-w003-027&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5635-1768-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090911-m802-w003-062&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5639-1456-2', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090210-m802-w014-067&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5639-1457-9', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090210-m802-w014-074&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5639-1970-3', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090210-m802-w014-070&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5640-2995-1', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100720-m802-w023-059&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5641-1342-1', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090609-m802-w065-082&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-5641-1921-8', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20100920-BPO-889-0122&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-81114-760-5', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20090613-m000-w012-256&cult=CN', '中华数字书苑(Apabi)');
+INSERT INTO `ebook_info` VALUES ('978-7-81124-159-4', 'http://www.apabi.com/hdlgdx/?pid=book.detail&metaid=m.20091204-m802-w006-035&cult=CN', '中华数字书苑(Apabi)');
+
+-- ----------------------------
 -- Table structure for lend_list
 -- ----------------------------
 DROP TABLE IF EXISTS `lend_list`;
 CREATE TABLE `lend_list`  (
-  `ser_num` bigint(20) NOT NULL AUTO_INCREMENT,
-  `book_id` bigint(20) NOT NULL,
-  `reader_id` bigint(20) NOT NULL,
-  `lend_date` date NULL DEFAULT NULL,
-  `back_date` date NULL DEFAULT NULL,
-  PRIMARY KEY (`ser_num`) USING BTREE
+                              `ser_num` bigint(20) NOT NULL AUTO_INCREMENT,
+                              `book_id` bigint(20) NOT NULL,
+                              `reader_id` bigint(20) NOT NULL,
+                              `lend_date` date NULL DEFAULT NULL,
+                              `back_date` date NULL DEFAULT NULL,
+                              PRIMARY KEY (`ser_num`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -1113,10 +1220,10 @@ INSERT INTO `lend_list` VALUES (7, 201, 10001, '2017-09-02', '2017-09-02');
 -- ----------------------------
 DROP TABLE IF EXISTS `reader_card`;
 CREATE TABLE `reader_card`  (
-  `reader_id` bigint(20) NOT NULL,
-  `username` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `password` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`reader_id`) USING BTREE
+                                `reader_id` bigint(20) NOT NULL,
+                                `username` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                `password` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                PRIMARY KEY (`reader_id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -1134,13 +1241,13 @@ INSERT INTO `reader_card` VALUES (10005, '李二飞', '123456');
 -- ----------------------------
 DROP TABLE IF EXISTS `reader_info`;
 CREATE TABLE `reader_info`  (
-  `reader_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `sex` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `birth` date NOT NULL,
-  `address` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
-  PRIMARY KEY (`reader_id`) USING BTREE
+                                `reader_id` bigint(20) NOT NULL AUTO_INCREMENT,
+                                `name` varchar(10) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                `sex` varchar(2) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                `birth` date NOT NULL,
+                                `address` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                `phone` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                                PRIMARY KEY (`reader_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10006 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
