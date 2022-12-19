@@ -5,4 +5,7 @@
         insert into reader_trace values
         (null, sysdate(), #{reader_id}, #{behavior}, #{detail})
     </insert>
+    <select id="getAllTraces" resultType="com.library.bean.ReaderTrace">
+        select * from reader_trace
+    </select>
 </mapper>
