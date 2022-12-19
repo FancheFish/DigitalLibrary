@@ -1,10 +1,13 @@
 package com.library.dao;
 
+import com.library.bean.ReaderTrace;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -21,6 +24,11 @@ public class ReaderTraceDao {
         map.put("behavior", behavior);
         map.put("detail", detail);
         return sqlSessionTemplate.insert(NAMESPACE + "addTrace", map);
+    }
+
+    public ArrayList<ReaderTrace> getAllTraces() {
+        List<ReaderTrace> result = sqlSessionTemplate.selectList(NAMESPACE + "getAllTraces");
+        return (ArrayList<ReaderTrace>) result;
     }
 
 }
